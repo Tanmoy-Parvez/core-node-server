@@ -1,5 +1,6 @@
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
 
 //normal server configuration
 
@@ -16,7 +17,11 @@ const url = require('url');
     }
 }); */
 
-const server = http.createServer(function (req, res) {
+
+
+// exploring url modules
+
+/* const server = http.createServer(function (req, res) {
     const address_url = "http://localhost:5000/user?name=tanmoy&country=BD";
     const parsed_url = url.parse(address_url);
     const queryObj = parsed_url.query
@@ -25,11 +30,18 @@ const server = http.createServer(function (req, res) {
     console.log("Query parameter: " + queryObj);
     console.log("Host url: " + hostUrl);
 });
+ */
 
+
+// exploring node js file system
+
+const server = http.createServer(function (req, res) {
+    
+});
 
 const port = 5000;
 
 server.listen(port, () => {
-    console.log("server listening on port " + port);
+    console.log("Server running on port " + port);
 });
 
