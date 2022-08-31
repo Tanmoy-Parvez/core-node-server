@@ -37,6 +37,23 @@ const fs = require('fs');
 
 const server = http.createServer(function (req, res) {
     
+   // reading file asynchronously;
+    fs.readFile("testFile.txt", (err, data) => { 
+        if (err) {
+            res.write("Data failed to read");
+            res.end();
+        }
+        else { 
+            res.write("From external file: " + data);
+            res.end();
+        }
+    })
+
+    // reading file synchronously;
+    const data = fs.readFileSync("testFile.txt");
+    res.write(data);
+    res.end();
+
 });
 
 const port = 5000;
