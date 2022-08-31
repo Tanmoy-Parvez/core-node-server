@@ -34,9 +34,12 @@ const fs = require('fs');
 
 
 // exploring node js file system
-
 const server = http.createServer(function (req, res) {
     
+/* 
+========= read data ========= 
+*/
+
    // reading file asynchronously;
     fs.readFile("testFile.txt", (err, data) => { 
         if (err) {
@@ -53,6 +56,36 @@ const server = http.createServer(function (req, res) {
     const data = fs.readFileSync("testFile.txt");
     res.write(data);
     res.end();
+
+    /* 
+    ========= write data ========= 
+    */
+
+    // writing file on existing file asynchronously;
+    /* fs.writeFile("testFile.txt", "hello world from write data", (err) => {
+        if (err) {
+            res.write("Data failed to write");
+            res.end();
+        }
+        else { 
+            res.write("Data successfully written");
+            res.end();
+
+        }
+    }) */
+
+    // writing file on existing file asynchronously;
+    fs.writeFile("newTestFile.txt", "Hello world from new node text file", (err) => {
+        if (err) {
+            res.write("Data failed to write");
+            res.end();
+        }
+        else {
+            res.write("Data successfully written");
+            res.end();
+
+        }
+    })
 
 });
 
