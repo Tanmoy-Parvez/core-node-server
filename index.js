@@ -20,7 +20,10 @@ const server = http.createServer(function (req, res) {
     const address_url = "http://localhost:5000/user?name=tanmoy&country=BD";
     const parsed_url = url.parse(address_url);
     const queryObj = parsed_url.query
-    console.log(queryObj);
+    const hostUrl = parsed_url.host
+    console.log("Parsed Url: ", parsed_url);
+    console.log("Query parameter: " + queryObj);
+    console.log("Host url: " + hostUrl);
 });
 
 
